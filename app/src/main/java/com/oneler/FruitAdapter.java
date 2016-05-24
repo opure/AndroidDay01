@@ -16,11 +16,6 @@ import java.util.List;
 public class FruitAdapter extends ArrayAdapter<Fruit> {
     private int resourceId;
 
-    public FruitAdapter(Context context, int textViewResouceId, List<Fruit> objects) {
-        super(context, textViewResouceId, objects);
-        resourceId = textViewResouceId;
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Fruit fruit = getItem(position);
@@ -37,6 +32,11 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
         viewHolder.fruitImage.setImageResource(fruit.getImageId());
         viewHolder.fruitName.setText(fruit.getName());
         return view;
+    }
+
+    public FruitAdapter(Context context, int textViewResouceId, List<Fruit> objects) {
+        super(context, textViewResouceId, objects);
+        resourceId = textViewResouceId;
     }
 
     private class ViewHolder {
